@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Mon Jan 25 22:47:28 2016 alies_a
+** Last update Mon Mar 14 19:55:33 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -48,6 +48,10 @@ void    keyboard_interrupt(int sig);
 void    do_void(int sig);
 int     compute_line(t_data *data, char *line);
 
+/*
+** Builtins
+*/
+
 int     check_builtin(t_data *data, char **args);
 int     b_setenv(t_data *data, int ac, char **av);
 int     b_unsetenv(t_data *data, int ac, char **av);
@@ -56,14 +60,49 @@ int     b_exit(t_data *data, int ac, char **av);
 int     b_cd(t_data *data, int ac, char **av);
 int     b_doge(t_data *data, int ac, char **av);
 
+/*
+** Environement
+*/
+
 const char *get_env(t_data *data, const char *name);
 int     find_env(t_data *data, const char *name);
 int     my_setenv(t_data *data, char **args);
 int     parse_setenv(char **args);
 int     my_unsetenv(t_data *data, char **args);
 
+/*
+** Execution
+*/
+
 char    *get_exec(t_data *data, char **args);
 int     my_exec(t_data *data, char **args);
+
+/*
+** Parsing
+*/
+
+typedef struct s_parse
+{
+  int (*func)(const char *line);
+  char type;
+} t_parse;
+
+typedef struct s_token
+{
+  char type;
+  char *str;
+  struct s_token *next;
+  struct s_token *prev;
+} t_token;
+
+int	tok_default(const char *line);
+int	tok_str(const char *line);
+
+t_token	*tokenize(const char *line);
+
+/*
+** Misc
+*/
 
 void    set_handlers();
 void    unset_handlers();

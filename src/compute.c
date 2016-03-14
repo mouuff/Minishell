@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Mon Jan 18 11:11:05 2016 alies_a
+** Last update Mon Mar 14 17:55:24 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -25,7 +25,7 @@ static int	compute(t_data *data, char **expr)
     }
   return (E_PASS);
 }
-
+/*
 int     compute_line(t_data *data, char *line)
 {
   char  **args;
@@ -47,5 +47,14 @@ int     compute_line(t_data *data, char *line)
       return (code);
     }
   my_array_del(args);
+  return (E_PASS);
+}
+*/
+
+int     	compute_line(t_data *data, char *line)
+{
+  t_token	*tokens;
+
+  tokens = 
   return (E_PASS);
 }
