@@ -5,14 +5,17 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Tue Mar 15 20:25:26 2016 alies_a
+** Last update Tue Mar 15 21:41:16 2016 alies_a
 */
 
+#include <stdlib.h>
 #include "mysh.h"
+#include "my.h"
 
 static t_parse func[] =
   {
-    {&tok_default, 'c'},
+    {&tok_str, 's'},
+    {&tok_default, 'd'},
     {NULL, 0}
   };
 
@@ -27,16 +30,20 @@ int	tok_default(const char *line)
   while (line[x] != '\0' && res <= 0)
     {
       y = 0;
-      while (func[y].func != NULL && res <= 0)
+      while (func[y].func != NULL &&
+	     res <= 0 &&
+	     func[y].type != 'd')
 	{
 	  res = func[y].func(line + x);  
 	  y += 1;
 	}
       x += 1;
     }
+  x -= 1;
+  if (x <= 0)
+    return (1);
   return (x);
 }
-
 
 static t_token	*next_token(const char *line,
 			    int *pos)
@@ -54,12 +61,13 @@ static t_token	*next_token(const char *line,
       res = func[x].func(line + *pos);
       x += 1;
     }
+  x -= 1;
+  if (res <= 0)
+    return (NULL);
   token->type = func[x].type;
   if ((token->str = malloc(sizeof(char) * res)) == NULL)
     return (NULL);
-  my_strncpy(token->str, line, res);
-  if (res <= 0)
-    return (NULL);
+  my_strncpy(token->str, line + *pos, res);
   *pos += res;
   return (token);
 }
@@ -71,12 +79,12 @@ t_token		*tokenize(const char *line)
   int		len;
   int		x;
 
-  if ((start = malloc(sizeof(t_token))) == NULL)
+  len = my_strlen(line);
+  x = 0;
+  if ((start = next_token(line, &x)) == NULL)
     return (NULL);
   tmp = start;
   start->prev = NULL;
-  len = my_strlen(line);
-  x = 0;
   while (x < len)
     {
       if ((tmp->next = next_token(line, &x)) == NULL)

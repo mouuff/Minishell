@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Mon Mar 14 17:55:24 2016 alies_a
+** Last update Tue Mar 15 21:03:54 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -51,10 +51,21 @@ int     compute_line(t_data *data, char *line)
 }
 */
 
+#include <stdio.h>
+void	show_tok(t_token *start)
+{
+  while (start != NULL)
+    {
+      printf("'%s' [%c]\n", start->str, start->type);
+      start = start->next;
+    }
+}
+
 int     	compute_line(t_data *data, char *line)
 {
   t_token	*tokens;
 
-  tokens = 
+  tokens = tokenize(line);
+  show_tok(tokens);
   return (E_PASS);
 }
