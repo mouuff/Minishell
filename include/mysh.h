@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Mon Mar 14 19:55:33 2016 alies_a
+** Last update Tue Mar 15 20:23:12 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -94,6 +94,12 @@ typedef struct s_token
   struct s_token *next;
   struct s_token *prev;
 } t_token;
+
+typedef enum e_token_code
+  {
+    T_PIPE	= -1,
+    T_LRED	= -2
+  } t_token_code;
 
 int	tok_default(const char *line);
 int	tok_str(const char *line);

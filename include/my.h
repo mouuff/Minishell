@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 18:29:00 2016 Arnaud Alies
-** Last update Sat Jan 23 15:32:15 2016 alies_a
+** Last update Tue Mar 15 20:23:37 2016 alies_a
 */
 
 #ifndef MY_H_
@@ -40,6 +40,9 @@ char	**my_array_dup(char **from);
 char    **my_array_cpy(char **dest, char **from);
 int     my_array_del(char **array);
 char    **my_str_split(const char *str, char c);
+void	my_strncpy(char *dest,
+		   const char *from,
+		   int n);
 
 char	*get_next_line(const int fd, char **next, int *size);
 
