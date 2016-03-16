@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Tue Mar 15 21:03:54 2016 alies_a
+** Last update Wed Mar 16 17:30:29 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -67,5 +67,6 @@ int     	compute_line(t_data *data, char *line)
 
   tokens = tokenize(line);
   show_tok(tokens);
+  tokens_free(&tokens);
   return (E_PASS);
 }

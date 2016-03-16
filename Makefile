@@ -5,12 +5,12 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Wed Mar 16 17:06:16 2016 alies_a
+## Last update Wed Mar 16 17:26:35 2016 alies_a
 ##
 
 NAME    =       mysh
 
-CC	=	gcc
+CC	=	gcc -g
 
 SRC	=	./src/
 
@@ -44,6 +44,7 @@ SRCS	=	$(SRC)main.c \
 		$(TOK)tok_str.c \
 		$(TOK)tok_pipe.c \
 		$(TOK)tok_redirect.c \
+		$(TOK)tok_free.c \
 		$(SIG)sig.c \
 		$(SIG)sig_handler.c \
 		$(EXEC)exec.c \

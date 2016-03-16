@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Wed Mar 16 16:59:54 2016 alies_a
+** Last update Wed Mar 16 17:42:04 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -48,9 +48,9 @@ static t_token	*next_token(const char *line,
   if (res <= 0)
     return (NULL);
   token->type = func[x].type;
-  if ((token->str = malloc(sizeof(char) * res)) == NULL)
+  if ((token->str = malloc(sizeof(char) * (res + 1))) == NULL)
     return (NULL);
-  my_strncpy(token->str, line + *pos, res);
+  my_strncpy(token->str, line + *pos, res + 1);
   *pos += res;
   return (token);
 }
