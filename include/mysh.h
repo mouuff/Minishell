@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Tue Mar 15 20:41:14 2016 alies_a
+** Last update Wed Mar 16 16:43:10 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -101,8 +101,12 @@ typedef enum e_token_code
     T_QUOTE	= -2
   } t_token_code;
 
+int	is_delimiter(char c);
+
 int	tok_default(const char *line);
 int	tok_str(const char *line);
+int	tok_right_simple(const char *line);
+int	tok_left_simple(const char *line);
 
 t_token	*tokenize(const char *line);
 

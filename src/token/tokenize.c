@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Tue Mar 15 21:41:16 2016 alies_a
+** Last update Wed Mar 16 16:52:09 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -15,34 +15,16 @@
 static t_parse func[] =
   {
     {&tok_str, 's'},
+    {&tok_right_simple, '>'},
+    {&tok_left_simple, '<'},
     {&tok_default, 'd'},
     {NULL, 0}
   };
 
-int	tok_default(const char *line)
+int     tok_default(const char *line)
 {
-  int	x;
-  int	y;
-  int	res;
-
-  res = 0;
-  x = 0;
-  while (line[x] != '\0' && res <= 0)
-    {
-      y = 0;
-      while (func[y].func != NULL &&
-	     res <= 0 &&
-	     func[y].type != 'd')
-	{
-	  res = func[y].func(line + x);  
-	  y += 1;
-	}
-      x += 1;
-    }
-  x -= 1;
-  if (x <= 0)
-    return (1);
-  return (x);
+  (void)line;
+  return (1);
 }
 
 static t_token	*next_token(const char *line,
