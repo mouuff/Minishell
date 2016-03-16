@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Wed Mar 16 16:52:09 2016 alies_a
+** Last update Wed Mar 16 16:59:54 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -15,9 +15,10 @@
 static t_parse func[] =
   {
     {&tok_str, 's'},
+    {&tok_pipe, '|'},
     {&tok_right_simple, '>'},
     {&tok_left_simple, '<'},
-    {&tok_default, 'd'},
+    {&tok_default, 's'},
     {NULL, 0}
   };
 

@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Wed Mar 16 16:52:53 2016 alies_a
+## Last update Wed Mar 16 17:06:16 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -42,6 +42,7 @@ SRCS	=	$(SRC)main.c \
 		$(TOK)tokenize.c \
 		$(TOK)delimiter.c \
 		$(TOK)tok_str.c \
+		$(TOK)tok_pipe.c \
 		$(TOK)tok_redirect.c \
 		$(SIG)sig.c \
 		$(SIG)sig_handler.c \

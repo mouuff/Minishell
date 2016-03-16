@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Wed Mar 16 16:43:10 2016 alies_a
+** Last update Wed Mar 16 17:06:03 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -107,6 +107,7 @@ int	tok_default(const char *line);
 int	tok_str(const char *line);
 int	tok_right_simple(const char *line);
 int	tok_left_simple(const char *line);
+int     tok_pipe(const char *line);
 
 t_token	*tokenize(const char *line);
 
