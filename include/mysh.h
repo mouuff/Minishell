@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Wed Mar 16 17:24:35 2016 alies_a
+** Last update Wed Mar 16 19:37:27 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -95,11 +95,16 @@ typedef struct s_token
   struct s_token *prev;
 } t_token;
 
-typedef enum e_token_code
-  {
-    T_PIPE	= -1,
-    T_QUOTE	= -2
-  } t_token_code;
+typedef struct s_rdr
+{
+  
+} t_rdr;
+
+typedef struct s_cmd
+{
+  char **args;
+  
+} t_cmd;
 
 int	is_delimiter(char c);
 
