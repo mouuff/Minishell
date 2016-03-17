@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 11:00:47 2016 alies_a
-** Last update Thu Mar 17 14:06:56 2016 alies_a
+** Last update Thu Mar 17 14:11:18 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -22,8 +22,8 @@ int	cmp_left_simple(const t_token *tok, t_cmp **cmp)
 
 int	cmp_right_simple(const t_token *tok, t_cmp **cmp)
 {
-  if (((*cmp)->input_file = my_strdup(tok->str)) == NULL)
+  if (((*cmp)->output_file = my_strdup(tok->str)) == NULL)
     return (1);
-  (*cmp)->input_type = '>';
+  (*cmp)->output_type = '>';
   return (0);
 }
