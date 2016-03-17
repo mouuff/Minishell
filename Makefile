@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Thu Mar 17 10:17:04 2016 alies_a
+## Last update Thu Mar 17 11:38:20 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -45,6 +45,10 @@ SRCS	=	$(SRC)main.c \
 		$(TOK)tok_pipe.c \
 		$(TOK)tok_redirect.c \
 		$(TOK)tok_free.c \
+		$(TOK)cmp_str.c \
+		$(TOK)cmp_redirect.c \
+		$(TOK)cmp_pipe.c \
+		$(TOK)recompose.c \
 		$(SIG)sig.c \
 		$(SIG)sig_handler.c \
 		$(EXEC)exec.c \
@@ -88,7 +92,8 @@ SRCS	=	$(SRC)main.c \
 		$(MY)my_str_to_nbr.c \
 		$(MY)my_purstr.c \
 		$(MY)my_strncpy.c \
-		$(MY)my_strdcpy.c
+		$(MY)my_strdcpy.c \
+		$(MY)my_memset.c
 
 OBJS	=	$(SRCS:.c=.o)
 

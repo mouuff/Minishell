@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 17 10:05:37 2016 alies_a
+** Last update Thu Mar 17 11:40:18 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -81,12 +81,6 @@ int     my_exec(t_data *data, char **args);
 ** Parsing
 */
 
-typedef struct s_parse
-{
-  int (*func)(const char *line);
-  char type;
-} t_parse;
-
 typedef struct s_token
 {
   char type;
@@ -99,10 +93,26 @@ typedef struct s_cmd
 {
   char *args;
   char *input_file;
+  char input_type;
   char *output_file;
+  char output_type;
   struct s_cmd *prev;
   struct s_cmd *next;
 } t_cmd;
+
+typedef struct s_parse
+{
+  int (*detect)(const char *line);
+  int (*recomp)(const t_token *tok, t_cmd **cmd);
+  char type;
+} t_parse;
+
+int     cmp_left_simple(const t_token *tok, t_cmd **cmd);
+int     cmp_right_simple(const t_token *tok, t_cmd **cmd);
+int     cmp_str(const t_token *tok, t_cmd **cmd);
+int     cmp_pipe(const t_token *tok, t_cmd **cmd);
+t_cmd   *new_cmd();
+t_cmd	*recompose(const t_token *tok);
 
 int	is_delimiter(char c);
 

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 18:29:00 2016 Arnaud Alies
-** Last update Thu Mar 17 10:17:17 2016 alies_a
+** Last update Thu Mar 17 11:36:19 2016 alies_a
 */
 
 #ifndef MY_H_
@@ -14,6 +14,8 @@
 #ifndef READ_SIZE
 #define READ_SIZE (14)
 #endif
+
+#include <stddef.h>
 
 int     my_putchar(const char c);
 int     my_putstr(const char *str);
@@ -45,6 +47,7 @@ void	my_strncpy(char *dest,
 		   int n);
 char    *my_strdcpy(const char *str1,
 		    const char *str2);
+void	my_memset(void *s, char c, size_t n);
 
 char	*get_next_line(const int fd, char **next, int *size);
 

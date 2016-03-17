@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Wed Mar 16 17:42:04 2016 alies_a
+** Last update Thu Mar 17 11:19:35 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -14,12 +14,12 @@
 
 static t_parse func[] =
   {
-    {&tok_str, 's'},
-    {&tok_pipe, '|'},
-    {&tok_right_simple, '>'},
-    {&tok_left_simple, '<'},
-    {&tok_default, 's'},
-    {NULL, 0}
+    {&tok_str, &cmp_str, 's'},
+    {&tok_pipe, &cmp_pipe, '|'},
+    {&tok_right_simple, &cmp_right_simple, '>'},
+    {&tok_left_simple, &cmp_left_simple, '<'},
+    {&tok_default, &cmp_str, 's'},
+    {NULL, NULL, 0}
   };
 
 int     tok_default(const char *line)
@@ -39,9 +39,9 @@ static t_token	*next_token(const char *line,
   x = 0;
   if ((token = malloc(sizeof(t_token))) == NULL)
     return (NULL);
-  while (func[x].func != NULL && res <= 0)
+  while (func[x].detect != NULL && res <= 0)
     {
-      res = func[x].func(line + *pos);
+      res = func[x].detect(line + *pos);
       x += 1;
     }
   x -= 1;

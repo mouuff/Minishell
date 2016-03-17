@@ -5,8 +5,12 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 10:00:15 2016 alies_a
-** Last update Thu Mar 17 10:09:39 2016 alies_a
+** Last update Thu Mar 17 11:42:08 2016 alies_a
 */
+
+#include <stdlib.h>
+#include "mysh.h"
+#include "my.h"
 
 t_cmd	*new_cmd()
 {
@@ -14,14 +18,11 @@ t_cmd	*new_cmd()
 
   if ((res = malloc(sizeof(t_cmd))) == NULL)
     return (NULL);
-  res->args = NULL;
-  res->input_file = NULL;
-  res->output_file = NULL;
-  res->prev = NULL;
-  res->next = NULL;
+  my_memset(res, 0, sizeof(t_cmd));
+  return (res);
 }
 
-t_cmd	*recompose(t_token *tok)
+t_cmd	*recompose(const t_token *tok)
 {
   t_cmd	*start;
 
@@ -32,4 +33,5 @@ t_cmd	*recompose(t_token *tok)
       
       tok = tok->next;
     }
+  return (start);
 }
