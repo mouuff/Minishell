@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 17 14:06:03 2016 alies_a
+** Last update Thu Mar 17 14:22:57 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -91,7 +91,7 @@ typedef struct s_token
 
 typedef struct s_cmp
 {
-  char *args;
+  char **args;
   char *input_file;
   char input_type;
   char *output_file;

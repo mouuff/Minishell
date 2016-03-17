@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Thu Mar 17 14:07:36 2016 alies_a
+** Last update Thu Mar 17 14:23:46 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -65,8 +65,9 @@ void	show_cmp(t_cmp *start)
 {
   while (start != NULL)
     {
-      printf("arg> %s | i: %s o: %s\n",
-	     start->args, start->input_file, start->output_file);
+      my_array_show(start->args);
+      printf("i: %s o: %s\n",
+	     start->input_file, start->output_file);
       start = start->next;
     }
 }

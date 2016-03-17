@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 13:44:51 2016 alies_a
-** Last update Thu Mar 17 14:06:34 2016 alies_a
+** Last update Thu Mar 17 14:34:13 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -13,7 +13,7 @@
 
 static void	cmp_free(t_cmp *cmp)
 {
-  free(cmp->args);
+  //free(cmp->args);
   free(cmp->input_file);
   free(cmp->output_file);
   free(cmp);
