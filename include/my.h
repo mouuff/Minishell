@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 18:29:00 2016 Arnaud Alies
-** Last update Tue Mar 15 20:23:37 2016 alies_a
+** Last update Thu Mar 17 10:17:17 2016 alies_a
 */
 
 #ifndef MY_H_
@@ -43,6 +43,8 @@ char    **my_str_split(const char *str, char c);
 void	my_strncpy(char *dest,
 		   const char *from,
 		   int n);
+char    *my_strdcpy(const char *str1,
+		    const char *str2);
 
 char	*get_next_line(const int fd, char **next, int *size);
 
