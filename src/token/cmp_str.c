@@ -5,19 +5,19 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 10:35:27 2016 alies_a
-** Last update Thu Mar 17 11:41:42 2016 alies_a
+** Last update Thu Mar 17 14:07:05 2016 alies_a
 */
 
 #include <stdlib.h>
 #include "my.h"
 #include "mysh.h"
 
-int	cmp_str(const t_token *tok, t_cmd **cmd)
+int	cmp_str(const t_token *tok, t_cmp **cmp)
 {
   char	*buff;
 
-  buff = (*cmd)->args;
-  if (((*cmd)->args = my_strdcpy((*cmd)->args, tok->str)) == NULL)
+  buff = (*cmp)->args;
+  if (((*cmp)->args = my_strdcpy((*cmp)->args, tok->str)) == NULL)
     return (1);
   free(buff);
   return (0);

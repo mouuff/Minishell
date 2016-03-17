@@ -5,25 +5,25 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 11:00:47 2016 alies_a
-** Last update Thu Mar 17 11:24:45 2016 alies_a
+** Last update Thu Mar 17 14:06:56 2016 alies_a
 */
 
 #include <stdlib.h>
 #include "mysh.h"
 #include "my.h"
 
-int	cmp_left_simple(const t_token *tok, t_cmd **cmd)
+int	cmp_left_simple(const t_token *tok, t_cmp **cmp)
 {
-  if (((*cmd)->input_file = my_strdup(tok->str)) == NULL)
+  if (((*cmp)->input_file = my_strdup(tok->str)) == NULL)
     return (1);
-  (*cmd)->input_type = '<';
+  (*cmp)->input_type = '<';
   return (0);
 }
 
-int	cmp_right_simple(const t_token *tok, t_cmd **cmd)
+int	cmp_right_simple(const t_token *tok, t_cmp **cmp)
 {
-  if (((*cmd)->input_file = my_strdup(tok->str)) == NULL)
+  if (((*cmp)->input_file = my_strdup(tok->str)) == NULL)
     return (1);
-  (*cmd)->input_type = '>';
+  (*cmp)->input_type = '>';
   return (0);
 }
