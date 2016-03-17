@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Sun Jan 24 13:44:09 2016 alies_a
+** Last update Thu Mar 17 21:09:27 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -52,6 +52,48 @@ int	print_sig(int status)
   return (0);
 }
 
+static int	launch_cmp(t_data *data, t_cmp *cmp)
+{
+  return (E_PASS);
+}
+
+int	launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
+{
+  int	fd[2];
+  pid_t	pid;
+  char  *bin_path;
+  int   status;
+  
+  if (pipe(fd) == -1)
+    return (E_MALLOC);
+  if ((bin_path = get_exec(data, cmp->args)) == NULL)
+    return (E_PASS);
+  pid = fork();
+  if (pid == 0)
+    {
+      close(fd[0]);
+      if (cmp->next != NULL)
+	dup2(fd[1], 1);
+      else
+	close(fd[1]);
+      if (cmp->prev != NULL)
+	dup2(in_fd, 0);
+      if (execve(bin_path, cmp->args, data->env) == -1)
+	return (E_EXIT);
+    }
+  else
+    {
+      if (cmp->next != NULL)
+	return (launch_cmps(data, cmp->next, fd[0]));
+      free(bin_path);
+      if (wait(&status) != -1)
+	print_sig(status);
+    }
+  
+  return (E_PASS);
+}
+
+/*
 int	my_exec(t_data *data, char **args)
 {
   char	*bin_path;
@@ -74,3 +116,4 @@ int	my_exec(t_data *data, char **args)
     }
   return (E_PASS);
 }
+*/

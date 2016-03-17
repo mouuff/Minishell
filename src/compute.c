@@ -5,13 +5,14 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Thu Mar 17 14:23:46 2016 alies_a
+** Last update Thu Mar 17 21:09:36 2016 alies_a
 */
 
 #include <stdlib.h>
 #include "my.h"
 #include "mysh.h"
 
+/*
 static int	compute(t_data *data, char **expr)
 {
   int   	code;
@@ -25,7 +26,8 @@ static int	compute(t_data *data, char **expr)
     }
   return (E_PASS);
 }
-/*
+
+
 int     compute_line(t_data *data, char *line)
 {
   char  **args;
@@ -63,13 +65,26 @@ void	show_tok(t_token *start)
 
 void	show_cmp(t_cmp *start)
 {
+  t_cmp *old;
   while (start != NULL)
     {
       my_array_show(start->args);
       printf("i: %s o: %s\n",
 	     start->input_file, start->output_file);
+      old = start;
       start = start->next;
     }
+  /*
+  printf("\n");
+  start = old;
+  while (start != NULL)
+    {
+      my_array_show(start->args);
+      printf("i: %s o: %s\n",
+	     start->input_file, start->output_file);
+      start = start->prev;
+    }
+  */
 }
 
 int     	compute_line(t_data *data, char *line)
@@ -82,6 +97,9 @@ int     	compute_line(t_data *data, char *line)
   t_cmp *res;
   res = recompose(tokens);
   show_cmp(res);
+
+  //launch_cmps(data, res, 0);
+  
   cmps_free(&res);
   tokens_free(&tokens);
   return (E_PASS);

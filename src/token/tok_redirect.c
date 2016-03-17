@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 16:47:38 2016 alies_a
-** Last update Thu Mar 17 19:50:53 2016 alies_a
+** Last update Thu Mar 17 21:32:47 2016 alies_a
 */
 
 #include "mysh.h"
@@ -18,7 +18,8 @@ static int	tok_redirect(const char *line,
   int   word;
 
   word = 0;
-  if (my_strmou(line, type) != 0)
+  if (my_strlen(line) == 0 ||
+      my_strmou(line, type) != 0)
     return (0);
   x = 1;
   while (line[x] != '\0' &&
