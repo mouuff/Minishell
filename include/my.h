@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 18:29:00 2016 Arnaud Alies
-** Last update Thu Mar 17 11:36:19 2016 alies_a
+** Last update Thu Mar 17 19:32:32 2016 alies_a
 */
 
 #ifndef MY_H_
@@ -48,6 +48,7 @@ void	my_strncpy(char *dest,
 char    *my_strdcpy(const char *str1,
 		    const char *str2);
 void	my_memset(void *s, char c, size_t n);
+int     my_strmou(const char *s1, const char *s2);
 
 char	*get_next_line(const int fd, char **next, int *size);
 

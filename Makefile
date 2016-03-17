@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Thu Mar 17 14:02:16 2016 alies_a
+## Last update Thu Mar 17 19:32:14 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -94,7 +94,8 @@ SRCS	=	$(SRC)main.c \
 		$(MY)my_purstr.c \
 		$(MY)my_strncpy.c \
 		$(MY)my_strdcpy.c \
-		$(MY)my_memset.c
+		$(MY)my_memset.c \
+		$(MY)my_strmou.c
 
 OBJS	=	$(SRCS:.c=.o)
 

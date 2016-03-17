@@ -5,19 +5,20 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 16:47:38 2016 alies_a
-** Last update Thu Mar 17 19:22:34 2016 alies_a
+** Last update Thu Mar 17 19:35:31 2016 alies_a
 */
 
 #include "mysh.h"
+#include "my.h"
 
 static int	tok_redirect(const char *line,
-			     char type)
+			     char *type)
 {
   int   x;
   int   word;
 
   word = 0;
-  if (line[0] != type)
+  if (my_strmou(line, type) != 0)
     return (0);
   x = 1;
   while (line[x] != '\0' &&
@@ -34,10 +35,10 @@ static int	tok_redirect(const char *line,
 
 int     tok_right_simple(const char *line)
 {
-  return (tok_redirect(line, '>'));
+  return (tok_redirect(line, ">"));
 }
 
 int     tok_left_simple(const char *line)
 {
-  return (tok_redirect(line, '<'));
+  return (tok_redirect(line, "<"));
 }
