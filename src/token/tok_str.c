@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 15 20:34:39 2016 alies_a
-** Last update Wed Mar 16 19:19:18 2016 alies_a
+** Last update Thu Mar 17 19:21:17 2016 alies_a
 */
 
 #include "mysh.h"
@@ -21,7 +21,5 @@ int	tok_str(const char *line)
     {
       x += 1;
     }
-  if (line[x] != '"')
-    return (0);
   return (x + 1);
 }
