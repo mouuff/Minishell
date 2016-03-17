@@ -5,15 +5,16 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 13:44:51 2016 alies_a
-** Last update Thu Mar 17 14:34:13 2016 alies_a
+** Last update Thu Mar 17 19:04:17 2016 alies_a
 */
 
 #include <stdlib.h>
+#include "my.h"
 #include "mysh.h"
 
 static void	cmp_free(t_cmp *cmp)
 {
-  //free(cmp->args);
+  my_array_del(cmp->args);
   free(cmp->input_file);
   free(cmp->output_file);
   free(cmp);

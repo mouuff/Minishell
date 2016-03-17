@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 10:35:27 2016 alies_a
-** Last update Thu Mar 17 14:30:10 2016 alies_a
+** Last update Thu Mar 17 19:01:23 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -17,9 +17,9 @@ int	cmp_str(const t_token *tok, t_cmp **cmp)
   char	*buff;
   int	x;
 
-  x = my_array_len(cmp->args) - 1;
-  buff = (*cmp)->args;
-  if (((*cmp)->args = my_strdcpy(((*cmp)->args)[x], tok->str)) == NULL)
+  x = my_array_len((*cmp)->args) - 1;
+  buff = ((*cmp)->args)[x];
+  if ((((*cmp)->args)[x] = my_strdcpy(((*cmp)->args)[x], tok->str)) == NULL)
     return (1);
   free(buff);
   return (0);
@@ -27,17 +27,19 @@ int	cmp_str(const t_token *tok, t_cmp **cmp)
 
 int	cmp_default(const t_token *tok, t_cmp **cmp)
 {
-  char  *buff;
+  int	x;
 
   if (is_delimiter(tok->str[0]))
     {
-
+      x = my_array_len((*cmp)->args) - 1;
+      if (my_strlen(((*cmp)->args)[x]) == 0)
+	return (0);
+      if (my_array_add(&((*cmp)->args), "") == NULL)
+	return (1);
     }
   else
     {
-      buff = (*cmp)->args;
-      if (((*cmp)->args = my_strdcpy((*cmp)->args, tok->str)) == NULL)
-	return (1);
-      free(buff);
+      cmp_str(tok, cmp);
     }
+  return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 17 14:22:57 2016 alies_a
+** Last update Thu Mar 17 18:57:11 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -110,6 +110,7 @@ typedef struct s_parse
 int     cmp_left_simple(const t_token *tok, t_cmp **cmp);
 int     cmp_right_simple(const t_token *tok, t_cmp **cmp);
 int     cmp_str(const t_token *tok, t_cmp **cmp);
+int     cmp_default(const t_token *tok, t_cmp **cmp);
 int     cmp_pipe(const t_token *tok, t_cmp **cmp);
 t_cmp   *new_cmp();
 void    cmps_free(t_cmp **start);
