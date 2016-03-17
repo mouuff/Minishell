@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Thu Mar 17 11:19:35 2016 alies_a
+** Last update Thu Mar 17 13:20:15 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -25,6 +25,23 @@ static t_parse func[] =
 int     tok_default(const char *line)
 {
   (void)line;
+  return (1);
+}
+
+int	get_func(t_parse *res, char type)
+{
+  int	x;
+
+  x = 0;
+  while (func[x].type != 0)
+    {
+      if (func[x].type == type)
+	{
+	  *res = func[x];
+	  return (0);
+	}
+      x += 1;
+    }
   return (1);
 }
 

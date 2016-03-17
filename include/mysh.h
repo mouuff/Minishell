@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 17 11:40:18 2016 alies_a
+** Last update Thu Mar 17 13:21:14 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -112,6 +112,7 @@ int     cmp_right_simple(const t_token *tok, t_cmd **cmd);
 int     cmp_str(const t_token *tok, t_cmd **cmd);
 int     cmp_pipe(const t_token *tok, t_cmd **cmd);
 t_cmd   *new_cmd();
+int     get_func(t_parse *res, char type);
 t_cmd	*recompose(const t_token *tok);
 
 int	is_delimiter(char c);

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Wed Mar 16 17:30:29 2016 alies_a
+** Last update Thu Mar 17 13:33:37 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -61,12 +61,26 @@ void	show_tok(t_token *start)
     }
 }
 
+void	show_cmp(t_cmd *start)
+{
+  while (start != NULL)
+    {
+      printf("arg> %s | i: %s o: %s\n",
+	     start->args, start->input_file, start->output_file);
+      start = start->next;
+    }
+}
+
 int     	compute_line(t_data *data, char *line)
 {
   t_token	*tokens;
 
   tokens = tokenize(line);
   show_tok(tokens);
-  tokens_free(&tokens);
+  printf("\n-----------------\n");
+  t_cmd *res;
+  res = recompose(tokens);
+  show_cmp(res);
+  //tokens_free(&tokens);
   return (E_PASS);
 }
