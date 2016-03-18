@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Fri Mar 18 15:12:58 2016 alies_a
+** Last update Fri Mar 18 16:08:23 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -107,6 +107,21 @@ typedef struct s_parse
   int (*clean)(t_token *tok);
   char type;
 } t_parse;
+
+/*
+** pipes
+*/
+
+typedef struct s_rdr
+{
+  int (*pipe)(const t_cmp *cmp);
+  char type;
+} t_rdr;
+
+int     out_simple(const t_cmp *cmp);
+int     in_simple(const t_cmp *cmp);
+int	pipeitout(const t_cmp *cmp);
+int	pipeitin(const t_cmp *cmp);
 
 /*
 ** Rebuilding tokens

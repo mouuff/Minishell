@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Fri Mar 18 13:25:04 2016 alies_a
+** Last update Fri Mar 18 16:01:53 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -52,11 +52,6 @@ int	print_sig(int status)
   return (0);
 }
 
-static int	launch_cmp(t_data *data, t_cmp *cmp)
-{
-  return (E_PASS);
-}
-
 int	launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
 {
   int	fd[2];
@@ -75,9 +70,16 @@ int	launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
       if (cmp->next != NULL)
 	dup2(fd[1], 1);
       else
-	close(fd[1]);
+	{
+	  close(fd[1]);
+	  pipeitout(cmp);
+	}
       if (cmp->prev != NULL)
 	dup2(in_fd, 0);
+      else
+	{
+	  pipeitin(cmp);
+	}
       if (execve(bin_path, cmp->args, data->env) == -1)
 	return (E_EXIT);
     }
