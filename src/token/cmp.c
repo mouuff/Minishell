@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 10:00:15 2016 alies_a
-** Last update Thu Mar 17 18:11:19 2016 alies_a
+** Last update Fri Mar 18 10:43:22 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -40,7 +40,8 @@ t_cmp		*recompose(const t_token *tok)
     {
       if (get_func(&func, tok->type))
 	return (NULL);
-      (func.recomp)(tok, &tmp);
+      if ((func.recomp)(tok, &tmp))
+	return (NULL);
       tok = tok->next;
     }
   return (start);

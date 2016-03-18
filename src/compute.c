@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Fri Mar 18 10:20:18 2016 alies_a
+** Last update Fri Mar 18 11:27:18 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -96,7 +96,8 @@ int     	compute_line(t_data *data, char *line)
   //printf("\n-----------------\n");
   t_cmp *res;
   res = recompose(tokens);
-  //show_cmp(res);
+  cmps_parse(res);
+  show_cmp(res);
 
   launch_cmps(data, res, 0);
   
