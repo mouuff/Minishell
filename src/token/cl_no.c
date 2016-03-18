@@ -5,12 +5,13 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 14:15:23 2016 alies_a
-** Last update Fri Mar 18 14:15:42 2016 alies_a
+** Last update Fri Mar 18 14:46:42 2016 alies_a
 */
 
 #include "mysh.h"
 
 int	cl_no(t_token *tok)
 {
+  (void)tok;
   return (0);
 }
