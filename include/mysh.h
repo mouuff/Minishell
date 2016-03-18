@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Fri Mar 18 13:38:54 2016 alies_a
+** Last update Fri Mar 18 14:28:50 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -104,8 +104,13 @@ typedef struct s_parse
 {
   int (*detect)(const char *line);
   int (*recomp)(const t_token *tok, t_cmp **cmp);
+  int (*clean)(t_token *tok);
   char type;
 } t_parse;
+
+/*
+** Rebuilding tokens
+*/
 
 int     cmp_left_simple(const t_token *tok, t_cmp **cmp);
 int     cmp_right_simple(const t_token *tok, t_cmp **cmp);
@@ -115,9 +120,14 @@ int     cmp_pipe(const t_token *tok, t_cmp **cmp);
 t_cmp   *new_cmp();
 void    cmps_free(t_cmp **start);
 int     cmps_parse(t_cmp *cmp);
+
 int     get_func(t_parse *res, char type);
 t_cmp	*recompose(const t_token *tok);
 int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd);
+
+/*
+** Tokenize
+*/
 
 int	is_delimiter(char c);
 
@@ -129,6 +139,17 @@ int     tok_pipe(const char *line);
 
 t_token	*tokenize(const char *line);
 void	tokens_free(t_token **start);
+
+/*
+** Clean token
+*/
+
+int	cl_tokens(t_token *tok);
+
+int     cl_no(t_token *tok);
+int	cl_str(t_token *tok);
+int     cl_right_simple(t_token *tok);
+int     cl_left_simple(t_token *tok);
 
 /*
 ** Misc

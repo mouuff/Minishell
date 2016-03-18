@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Fri Mar 18 11:27:18 2016 alies_a
+** Last update Fri Mar 18 14:37:24 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -92,6 +92,7 @@ int     	compute_line(t_data *data, char *line)
   t_token	*tokens;
 
   tokens = tokenize(line);
+  cl_tokens(tokens);
   //show_tok(tokens);
   //printf("\n-----------------\n");
   t_cmp *res;

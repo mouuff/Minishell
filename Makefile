@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Fri Mar 18 11:30:51 2016 alies_a
+## Last update Fri Mar 18 14:26:39 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -51,6 +51,10 @@ SRCS	=	$(SRC)main.c \
 		$(TOK)cmp.c \
 		$(TOK)cmp_free.c \
 		$(TOK)cmp_parse.c \
+		$(TOK)cl_str.c \
+		$(TOK)cl_redirect.c \
+		$(TOK)cl_no.c \
+		$(TOK)cl.c \
 		$(SIG)sig.c \
 		$(SIG)sig_handler.c \
 		$(EXEC)exec.c \

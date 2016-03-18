@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Thu Mar 17 18:56:13 2016 alies_a
+** Last update Fri Mar 18 14:23:45 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -14,12 +14,12 @@
 
 static t_parse func[] =
   {
-    {&tok_str, &cmp_str, 's'},
-    {&tok_pipe, &cmp_pipe, '|'},
-    {&tok_right_simple, &cmp_right_simple, '>'},
-    {&tok_left_simple, &cmp_left_simple, '<'},
-    {&tok_default, &cmp_default, 'd'},
-    {NULL, NULL, 0}
+    {&tok_str, &cmp_str, &cl_str, 's'},
+    {&tok_pipe, &cmp_pipe, &cl_no, '|'},
+    {&tok_right_simple, &cmp_right_simple, cl_right_simple, '>'},
+    {&tok_left_simple, &cmp_left_simple, cl_left_simple, '<'},
+    {&tok_default, &cmp_default, &cl_no, 'd'},
+    {NULL, NULL, NULL, 0}
   };
 
 int     tok_default(const char *line)
