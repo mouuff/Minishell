@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Dec 17 13:44:58 2015 Arnaud Alies
-** Last update Thu Jan 14 11:06:24 2016 Arnaud Alies
+** Last update Fri Mar 18 17:21:43 2016 alies_a
 */
 
 #include <unistd.h>
@@ -93,7 +93,8 @@ char		*get_next_line(const int fd, char **next, int *size)
     return (NULL);
   while ((res = get_line(next, size)) == NULL)
     {
-      r = read(fd, buff, READ_SIZE);
+      if ((r = read(fd, buff, READ_SIZE)) == -1)
+	return (NULL);
       if (append_next(next, size, buff, r))
 	return (NULL);
       if (r <= 0)
