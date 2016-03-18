@@ -5,10 +5,11 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 11:15:27 2016 alies_a
-** Last update Fri Mar 18 11:31:40 2016 alies_a
+** Last update Fri Mar 18 13:38:19 2016 alies_a
 */
 
 #include <stdlib.h>
+#include "my.h"
 #include "mysh.h"
 
 static int	rm_empty_args(char **args)
