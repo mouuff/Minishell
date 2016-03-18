@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Fri Mar 18 14:28:50 2016 alies_a
+** Last update Fri Mar 18 15:12:58 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -148,8 +148,8 @@ int	cl_tokens(t_token *tok);
 
 int     cl_no(t_token *tok);
 int	cl_str(t_token *tok);
-int     cl_right_simple(t_token *tok);
-int     cl_left_simple(t_token *tok);
+int     cl_right(t_token *tok);
+int     cl_left(t_token *tok);
 
 /*
 ** Misc
