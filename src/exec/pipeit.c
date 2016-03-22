@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 22 14:39:02 2016 alies_a
-** Last update Tue Mar 22 16:33:44 2016 alies_a
+** Last update Tue Mar 22 16:54:04 2016 alies_a
 */
 
 #include <sys/types.h>
@@ -36,20 +36,17 @@ int	out_simple(const t_cmp *cmp)
 {
   int	fd;
 
-  if ((fd = open((cmp->rd)[OUT].file,
-		 O_WRONLY | O_CREAT, 0644)) == -1)
+  if ((fd = open((cmp->rd)[OUT].file, O_WRONLY | O_CREAT, 0644)) == -1)
     return (1);
   if (dup2(fd, 1) == -1)
     return (1);
   return (0);
 }
 
-int	pipeit(const t_cmp *cmp, int in_fd)
+int	pipeit(const t_cmp *cmp)
 {
   int	x;
 
-  if (cmp->prev != NULL)
-    dup2(in_fd, 0);
   x = 0;
   while (rdr[x].pipe != NULL)
     {
