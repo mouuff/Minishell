@@ -5,13 +5,16 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Fri Mar 18 16:08:23 2016 alies_a
+** Last update Tue Mar 22 14:28:18 2016 alies_a
 */
 
 #ifndef MYSH_H_
 #define MYSH_H_
 
 #define IS_ERR(x) ((x > 0 ? 1 : 0))
+
+#define IN (0)
+#define OUT (1)
 
 typedef struct s_data
 {
@@ -89,13 +92,16 @@ typedef struct s_token
   struct s_token *prev;
 } t_token;
 
+typedef struct s_rd
+{
+  char *file;
+  char type;
+} t_rd;
+
 typedef struct s_cmp
 {
   char **args;
-  char *input_file;
-  char input_type;
-  char *output_file;
-  char output_type;
+  t_rd rd[2];
   struct s_cmp *prev;
   struct s_cmp *next;
 } t_cmp;

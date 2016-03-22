@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 13:44:51 2016 alies_a
-** Last update Thu Mar 17 19:04:17 2016 alies_a
+** Last update Tue Mar 22 14:31:06 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -15,8 +15,8 @@
 static void	cmp_free(t_cmp *cmp)
 {
   my_array_del(cmp->args);
-  free(cmp->input_file);
-  free(cmp->output_file);
+  free((cmp->rd)[IN].file);
+  free((cmp->rd)[OUT].file);
   free(cmp);
 }
 

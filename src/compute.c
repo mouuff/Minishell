@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Fri Mar 18 16:10:03 2016 alies_a
+** Last update Tue Mar 22 14:33:59 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -70,7 +70,7 @@ void	show_cmp(t_cmp *start)
     {
       my_array_show(start->args);
       printf("i: %s o: %s\n",
-	     start->input_file, start->output_file);
+	     start->rd[IN].file, start->rd[OUT].file);
       old = start;
       start = start->next;
     }
@@ -98,9 +98,9 @@ int     	compute_line(t_data *data, char *line)
   t_cmp *res;
   res = recompose(tokens);
   cmps_parse(res);
-  //show_cmp(res);
+  show_cmp(res);
 
-  launch_cmps(data, res, 0);
+  //launch_cmps(data, res, 0);
   
   cmps_free(&res);
   tokens_free(&tokens);

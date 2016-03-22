@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Fri Mar 18 17:29:03 2016 alies_a
+** Last update Tue Mar 22 14:31:56 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -51,7 +51,7 @@ int	print_sig(int status)
     }
   return (0);
 }
-
+/*
 int	launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
 {
   int	fd[2];
@@ -100,6 +100,7 @@ int	launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
     }
   return (E_PASS);
 }
+*/
 
 /*
 int	my_exec(t_data *data, char **args)
