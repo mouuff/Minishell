@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Tue Mar 22 14:31:56 2016 alies_a
+** Last update Tue Mar 22 16:34:48 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -50,6 +50,38 @@ int	print_sig(int status)
       x += 1;
     }
   return (0);
+}
+
+int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
+{
+  int	fd[2];
+  pid_t	pid;
+  char  *bin_path;
+  int   status;
+
+  if (pipe(fd) == -1)
+    return (E_MALLOC);
+  if ((bin_path = get_exec(data, cmp->args)) == NULL)
+    return (E_PASS);
+  pid = fork();
+  if (pid == 0)
+    {
+      close(fd[0]);
+      if (cmp->next != NULL)
+	dup2(fd[1], 1);
+      pipeit(cmp, in_fd);
+      if (execve(bin_path, cmp->args, data->env) == -1)
+	return (E_EXIT);
+    }
+  else
+    {
+      free(bin_path);
+      close(fd[1]);
+      if (cmp->next != NULL)
+	launch_cmps(data, cmp->next, fd[0]);
+      if (waitpid(pid, &status, 0) != -1)
+	print_sig(status);
+    }
 }
 /*
 int	launch_cmps(t_data *data, t_cmp *cmp, int in_fd)

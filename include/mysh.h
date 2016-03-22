@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Tue Mar 22 14:28:18 2016 alies_a
+** Last update Tue Mar 22 16:22:47 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -126,8 +126,7 @@ typedef struct s_rdr
 
 int     out_simple(const t_cmp *cmp);
 int     in_simple(const t_cmp *cmp);
-int	pipeitout(const t_cmp *cmp);
-int	pipeitin(const t_cmp *cmp);
+int	pipeit(const t_cmp *cmp, int in_fd);
 
 /*
 ** Rebuilding tokens
