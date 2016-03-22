@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Tue Mar 22 16:54:15 2016 alies_a
+** Last update Tue Mar 22 18:47:10 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -102,6 +102,7 @@ typedef struct s_cmp
 {
   char **args;
   t_rd rd[2];
+  int ambiguous;
   struct s_cmp *prev;
   struct s_cmp *next;
 } t_cmp;

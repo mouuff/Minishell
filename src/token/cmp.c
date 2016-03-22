@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 10:00:15 2016 alies_a
-** Last update Tue Mar 22 14:17:54 2016 alies_a
+** Last update Tue Mar 22 18:31:56 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -20,9 +20,16 @@ t_cmp	*new_cmp()
     return (NULL);
   my_memset(res, 0, sizeof(t_cmp));
   if ((res->args = malloc(sizeof(char*) * 2)) == NULL)
-    return (NULL);
+    {
+      free(res);
+      return (NULL);
+    }
   if ((res->args[0] = my_strdup("")) == NULL)
-    return (NULL);
+    {
+      free(res->args[0]);
+      free(res);
+      return (NULL);
+    }
   res->args[1] = NULL;
   return (res);
 }
