@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 22 14:39:02 2016 alies_a
-** Last update Tue Mar 22 16:54:04 2016 alies_a
+** Last update Tue Mar 22 19:50:11 2016 alies_a
 */
 
 #include <sys/types.h>
@@ -46,15 +46,16 @@ int	out_simple(const t_cmp *cmp)
 int	pipeit(const t_cmp *cmp)
 {
   int	x;
+  int	res;
 
+  res = 0;
   x = 0;
   while (rdr[x].pipe != NULL)
     {
-      if (rdr[x].type == cmp->rd[IN].type)
-	rdr[x].pipe(cmp);
-      if (rdr[x].type == cmp->rd[OUT].type)
-	rdr[x].pipe(cmp);
+      if (rdr[x].type == cmp->rd[OUT].type ||
+	  rdr[x].type == cmp->rd[IN].type)
+	res = (rdr[x].pipe(cmp) ? 1 : res);
       x += 1;
     }
-  return (0);
+  return (res);
 }
