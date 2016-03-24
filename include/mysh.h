@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 24 14:31:20 2016 alies_a
+** Last update Thu Mar 24 15:03:31 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -175,9 +175,15 @@ int     cl_left(t_token *tok);
 ** Parse
 */
 
+typedef struct s_cmp_parse
+{
+  const char *err;
+  int (*parse)(t_cmp *cmp);
+} t_cmp_parse;
+
 int     cmps_parse(t_cmp *cmp);
 
-int     rm_empty_args(char **args);
+int     rm_empty_args(t_cmp *cmp);
 
 /*
 ** Misc
