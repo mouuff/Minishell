@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 11:15:27 2016 alies_a
-** Last update Thu Mar 24 16:00:54 2016 alies_a
+** Last update Thu Mar 24 16:32:22 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -13,7 +13,7 @@
 #include "mysh.h"
 
 static t_cmp_parse func[] = {
-  {"", &parse_empty_args},
+  {"Invalid null command.\n", &parse_empty_args},
   {"Ambiguous output redirect.\n", &parse_ambig_out},
   {"Ambiguous input redirect.\n", &parse_ambig_in},
   {NULL, NULL}
