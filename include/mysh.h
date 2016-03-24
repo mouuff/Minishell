@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 24 16:01:38 2016 alies_a
+** Last update Thu Mar 24 18:48:28 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -189,6 +189,7 @@ int     cmps_parse(t_cmp *cmp);
 int     parse_empty_args(t_cmp *cmp);
 int     parse_ambig_out(t_cmp *cmp);
 int     parse_ambig_in(t_cmp *cmp);
+int     parse_redirect(t_cmp *cmp);
 
 /*
 ** Misc
