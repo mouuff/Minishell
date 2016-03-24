@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Tue Mar 22 18:47:10 2016 alies_a
+** Last update Thu Mar 24 14:31:20 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -140,7 +140,6 @@ int     cmp_default(const t_token *tok, t_cmp **cmp);
 int     cmp_pipe(const t_token *tok, t_cmp **cmp);
 t_cmp   *new_cmp();
 void    cmps_free(t_cmp **start);
-int     cmps_parse(t_cmp *cmp);
 
 int     get_func(t_parse *res, char type);
 t_cmp	*recompose(const t_token *tok);
@@ -171,6 +170,14 @@ int     cl_no(t_token *tok);
 int	cl_str(t_token *tok);
 int     cl_right(t_token *tok);
 int     cl_left(t_token *tok);
+
+/*
+** Parse
+*/
+
+int     cmps_parse(t_cmp *cmp);
+
+int     rm_empty_args(char **args);
 
 /*
 ** Misc

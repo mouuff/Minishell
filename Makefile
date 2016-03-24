@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Tue Mar 22 15:22:11 2016 alies_a
+## Last update Thu Mar 24 14:28:15 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -50,7 +50,6 @@ SRCS	=	$(SRC)main.c \
 		$(TOK)cmp_pipe.c \
 		$(TOK)cmp.c \
 		$(TOK)cmp_free.c \
-		$(TOK)cmp_parse.c \
 		$(TOK)cl_str.c \
 		$(TOK)cl_redirect.c \
 		$(TOK)cl_no.c \
@@ -63,6 +62,8 @@ SRCS	=	$(SRC)main.c \
 		$(PARSE)str_to_arg.c \
 		$(PARSE)preparse.c \
 		$(PARSE)parse.c \
+		$(PARSE)cmp_parse.c \
+		$(PARSE)cmp_empty.c \
 		$(BUILTIN)check.c \
 		$(BUILTIN)b_env.c \
 		$(BUILTIN)b_exit.c \
