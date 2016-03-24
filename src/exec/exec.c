@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Tue Mar 22 18:58:27 2016 alies_a
+** Last update Thu Mar 24 13:07:03 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -80,8 +80,7 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
       close(fd[1]);
       if (cmp->next != NULL)
 	launch_cmps(data, cmp->next, fd[0]);
-      else
-	close(fd[0]);
+      close(fd[0]);
       if (waitpid(pid, &status, 0) != -1)
 	print_sig(status);
       free(bin_path);
