@@ -5,16 +5,16 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 24 14:28:25 2016 alies_a
-** Last update Thu Mar 24 14:50:43 2016 alies_a
+** Last update Thu Mar 24 15:07:56 2016 alies_a
 */
 
 #include <stdlib.h>
 #include "my.h"
 #include "mysh.h"
 
-int	rm_empty_args(t_cmp *cmp)
+int	parse_empty_args(t_cmp *cmp)
 {
-  char **args;
+  char	**args;
   int	x;
   int	valid;
 

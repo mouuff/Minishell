@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 24 15:03:31 2016 alies_a
+** Last update Thu Mar 24 16:01:38 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -15,6 +15,9 @@
 
 #define IN (0)
 #define OUT (1)
+
+#define AIN (1)
+#define AOUT (2)
 
 typedef struct s_data
 {
@@ -183,7 +186,9 @@ typedef struct s_cmp_parse
 
 int     cmps_parse(t_cmp *cmp);
 
-int     rm_empty_args(t_cmp *cmp);
+int     parse_empty_args(t_cmp *cmp);
+int     parse_ambig_out(t_cmp *cmp);
+int     parse_ambig_in(t_cmp *cmp);
 
 /*
 ** Misc

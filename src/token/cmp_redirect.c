@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 17 11:00:47 2016 alies_a
-** Last update Tue Mar 22 18:49:50 2016 alies_a
+** Last update Thu Mar 24 15:53:59 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -16,7 +16,8 @@ int	cmp_left_simple(const t_token *tok, t_cmp **cmp)
 {
   if ((*cmp)->rd[IN].file != NULL)
     {
-      (*cmp)->ambiguous = 1;
+      if ((*cmp)->ambiguous == 0)
+	(*cmp)->ambiguous = AIN;
       free((*cmp)->rd[IN].file);
     }
   if (((*cmp)->rd[IN].file = my_strdup(tok->str)) == NULL)
@@ -29,7 +30,8 @@ int	cmp_right_simple(const t_token *tok, t_cmp **cmp)
 {
   if ((*cmp)->rd[OUT].file != NULL)
     {
-      (*cmp)->ambiguous = 1;
+      if ((*cmp)->ambiguous == 0)
+	(*cmp)->ambiguous = AOUT;
       free((*cmp)->rd[OUT].file);
     }
   if (((*cmp)->rd[OUT].file = my_strdup(tok->str)) == NULL)

@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Thu Mar 24 14:28:15 2016 alies_a
+## Last update Thu Mar 24 16:01:15 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -63,7 +63,8 @@ SRCS	=	$(SRC)main.c \
 		$(PARSE)preparse.c \
 		$(PARSE)parse.c \
 		$(PARSE)cmp_parse.c \
-		$(PARSE)cmp_empty.c \
+		$(PARSE)parse_empty_args.c \
+		$(PARSE)parse_ambig.c \
 		$(BUILTIN)check.c \
 		$(BUILTIN)b_env.c \
 		$(BUILTIN)b_exit.c \
