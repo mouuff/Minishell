@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 13:52:44 2016 alies_a
-** Last update Thu Mar 24 14:41:10 2016 alies_a
+** Last update Thu Mar 24 14:45:00 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -25,6 +25,8 @@ static int	cl_redirect(t_token *tok,
   if ((tok->str = my_strdup(tok->str + x)) == NULL)
     return (1);
   free(buff);
+  if (tok->str[0] == '"' && tok->str[my_strlen(tok->str) - 1] == '"')
+    cl_str(tok);
   return (0);
 }
 
