@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Thu Mar 24 13:07:03 2016 alies_a
+** Last update Fri Mar 25 15:40:09 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -59,10 +59,10 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
   char  *bin_path;
   int   status;
 
-  if (pipe(fd) == -1)
-    return (E_MALLOC);
   if ((bin_path = get_exec(data, cmp->args)) == NULL)
     return (E_PASS);
+  if (pipe(fd) == -1)
+    return (E_MALLOC);
   pid = fork();
   if (pid == 0)
     {
