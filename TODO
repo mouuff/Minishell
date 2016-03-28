@@ -1,0 +1,4 @@
+./asm/asm <|> /dev/null
+
+./mysh < /dev/zero
+
