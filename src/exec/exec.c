@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Mon Mar 28 15:03:41 2016 alies_a
+** Last update Mon Mar 28 16:58:12 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -107,6 +107,8 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
   pid_t	pid;
   int   status;
 
+  if (cmp->next == NULL && check_builtin(cmp->args) != NULL)
+    return (check_builtin(cmp->args)(data, my_array_len(cmp->args), cmp->args));
   if (pipe(fd) == -1)
     return (E_MALLOC);
   pid = fork();

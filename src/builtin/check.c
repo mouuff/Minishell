@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan  5 18:23:39 2016 Arnaud Alies
-** Last update Mon Mar 28 14:50:15 2016 alies_a
+** Last update Mon Mar 28 17:02:01 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -24,9 +24,7 @@ t_func builtins[] =
 t_built	check_builtin(char **args)
 {
   int	x;
-  int	len;
 
-  len = my_array_len(args);
   x = 0;
   while (builtins[x].name != NULL)
     {
