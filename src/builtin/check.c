@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan  5 18:23:39 2016 Arnaud Alies
-** Last update Mon Jan 25 22:45:46 2016 alies_a
+** Last update Mon Mar 28 14:50:15 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -21,7 +21,7 @@ t_func builtins[] =
    {&b_doge, "doge"},
    {NULL, NULL}};
 
-int     check_builtin(t_data *data, char **args)
+t_built	check_builtin(char **args)
 {
   int	x;
   int	len;
@@ -31,8 +31,8 @@ int     check_builtin(t_data *data, char **args)
   while (builtins[x].name != NULL)
     {
       if (my_strcmp(args[0], builtins[x].name) == 0)
-	return ((builtins[x].func)(data, len, args));
+	return (builtins[x].func);
       x += 1;
     }
-  return (E_SKIP);
+  return (NULL);
 }

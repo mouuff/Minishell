@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Mon Mar 28 14:21:02 2016 alies_a
+** Last update Mon Mar 28 15:03:41 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -76,21 +76,28 @@ int	forked(t_data *data, t_cmp *cmp, int fds)
 }
 */
 
-int	launch_cmp(t_data *data,
-		   t_cmp *cmp,
-		   int *fd,
-		   int in_fd)
+int		launch_cmp(t_data *data,
+			   t_cmp *cmp,
+			   int *fd,
+			   int in_fd)
 {
-  char	*bin_path;
+  char		*bin_path;
+  t_built	func;
 
+  func = check_builtin(cmp->args);
   if (pipeit(cmp, fd, in_fd))
     return (1);
   if (redirect(cmp))
     return (1);
-  if ((bin_path = get_exec(data, cmp->args)) == NULL)
-    return (1);
-  if (execve(bin_path, cmp->args, data->env) == -1)
-    return (1);
+  if (func != NULL)
+    func(data, my_array_len(cmp->args), cmp->args);
+  else
+    {
+      if ((bin_path = get_exec(data, cmp->args)) == NULL)
+	return (1);
+      if (execve(bin_path, cmp->args, data->env) == -1)
+	return (1);
+    }
   return (0);
 }
 

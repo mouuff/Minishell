@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Mon Mar 28 13:49:10 2016 alies_a
+** Last update Mon Mar 28 14:50:45 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -25,9 +25,11 @@ typedef struct s_data
   char *oldpwd;
 } t_data;
 
+typedef int(*t_built)(t_data *data, int ac, char **av);
+
 typedef struct s_func
 {
-  int (*func)(t_data *data, int ac, char **av);
+  t_built func;
   const char *name;
 } t_func;
 
@@ -59,7 +61,7 @@ int     compute_line(t_data *data, char *line);
 ** Builtins
 */
 
-int     check_builtin(t_data *data, char **args);
+t_built check_builtin(char **args);
 int     b_setenv(t_data *data, int ac, char **av);
 int     b_unsetenv(t_data *data, int ac, char **av);
 int     b_env(t_data *data, int ac, char **av);
