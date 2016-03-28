@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Thu Mar 24 18:48:14 2016 alies_a
+## Last update Mon Mar 28 13:43:27 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -58,6 +58,7 @@ SRCS	=	$(SRC)main.c \
 		$(SIG)sig_handler.c \
 		$(EXEC)exec.c \
 		$(EXEC)get_exec.c \
+		$(EXEC)redirect.c \
 		$(EXEC)pipeit.c \
 		$(PARSE)str_to_arg.c \
 		$(PARSE)preparse.c \

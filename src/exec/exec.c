@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Fri Mar 25 15:40:09 2016 alies_a
+** Last update Mon Mar 28 14:21:02 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -51,29 +51,62 @@ int	print_sig(int status)
     }
   return (0);
 }
-
-int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
+/*
+int	forked(t_data *data, t_cmp *cmp, int fds)
 {
-  int	fd[2];
-  pid_t	pid;
-  char  *bin_path;
-  int   status;
+  char	*bin_path;
+  int	code;
 
-  if ((bin_path = get_exec(data, cmp->args)) == NULL)
-    return (E_PASS);
-  if (pipe(fd) == -1)
-    return (E_MALLOC);
-  pid = fork();
-  if (pid == 0)
+  if (IS_ERR((code = check_builtin(data, expr))))
+    return (code);
+  if (code == E_SKIP)
     {
+      if ((bin_path = get_exec(data, cmp->args)) == NULL)
+	return (E_PASS);
       close(fd[0]);
       if (cmp->next != NULL)
 	dup2(fd[1], 1);
       if (cmp->prev != NULL)
 	dup2(in_fd, 0);
-      pipeit(cmp);
+      redirect(cmp);
       if (execve(bin_path, cmp->args, data->env) == -1)
-	return (E_EXIT);
+	return (E_KILL);
+    }
+  return (0);
+}
+*/
+
+int	launch_cmp(t_data *data,
+		   t_cmp *cmp,
+		   int *fd,
+		   int in_fd)
+{
+  char	*bin_path;
+
+  if (pipeit(cmp, fd, in_fd))
+    return (1);
+  if (redirect(cmp))
+    return (1);
+  if ((bin_path = get_exec(data, cmp->args)) == NULL)
+    return (1);
+  if (execve(bin_path, cmp->args, data->env) == -1)
+    return (1);
+  return (0);
+}
+
+int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
+{
+  int	fd[2];
+  pid_t	pid;
+  int   status;
+
+  if (pipe(fd) == -1)
+    return (E_MALLOC);
+  pid = fork();
+  if (pid == 0)
+    {
+      launch_cmp(data, cmp, fd, in_fd);
+      exit(1);
     }
   else
     {
@@ -83,7 +116,6 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
       close(fd[0]);
       if (waitpid(pid, &status, 0) != -1)
 	print_sig(status);
-      free(bin_path);
     }
   return (E_PASS);
 }

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 24 18:48:28 2016 alies_a
+** Last update Mon Mar 28 13:49:10 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -42,7 +42,8 @@ typedef enum e_exit_code
     E_SKIP	= -2,
     E_PASS	= -1,
     E_EXIT	= 1,
-    E_MALLOC	= 2
+    E_MALLOC	= 2,
+    E_KILL	= 3
   } t_exit_code;
 
 void    clean_str(char **s);
@@ -124,13 +125,17 @@ typedef struct s_parse
 
 typedef struct s_rdr
 {
-  int (*pipe)(const t_cmp *cmp);
+  int (*rdr)(const t_cmp *cmp);
   char type;
 } t_rdr;
 
 int     out_simple(const t_cmp *cmp);
 int     in_simple(const t_cmp *cmp);
-int	pipeit(const t_cmp *cmp);
+
+int	redirect(const t_cmp *cmp);
+int     pipeit(const t_cmp *cmp,
+	       int *fd,
+	       int in_fd);
 
 /*
 ** Rebuilding tokens
