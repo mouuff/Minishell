@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Oct  7 22:09:42 2015 Arnaud Alies
-** Last update Thu Mar 17 18:57:50 2016 alies_a
+** Last update Tue Mar 29 18:18:49 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -20,7 +20,6 @@ int    my_array_show(char **tab)
   x = 0;
   while (tab[x] != NULL)
     {
-      my_putstr("> ");
       my_putstr(tab[x]);
       my_putchar('\n');
       x += 1;

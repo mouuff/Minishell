@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 14 17:55:10 2016 alies_a
-** Last update Fri Mar 18 15:13:16 2016 alies_a
+** Last update Tue Mar 29 13:41:07 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -16,6 +16,8 @@ static t_parse func[] =
   {
     {&tok_str, &cmp_str, &cl_str, 's'},
     {&tok_pipe, &cmp_pipe, &cl_no, '|'},
+    {&tok_right_double, &cmp_right_double, cl_right_double, '}'},
+    {&tok_left_double, &cmp_left_double, cl_left_double, '{'},
     {&tok_right_simple, &cmp_right_simple, cl_right, '>'},
     {&tok_left_simple, &cmp_left_simple, cl_left, '<'},
     {&tok_default, &cmp_default, &cl_no, 'd'},

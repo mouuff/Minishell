@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 28 13:29:52 2016 alies_a
-** Last update Mon Mar 28 13:48:43 2016 alies_a
+** Last update Tue Mar 29 15:14:49 2016 alies_a
 */
 
 #include <unistd.h>
@@ -16,14 +16,17 @@ int	pipeit(const t_cmp *cmp,
 	       int *fd,
 	       int in_fd)
 {
-  if (close(fd[0]) == -1)
-    return (1);
-  if (cmp->next != NULL)
+  if (fd != NULL)
     {
-      if (dup2(fd[1], 1) == -1)
+      if (close(fd[0]) == -1)
 	return (1);
-      if (close(fd[1]) == -1)
-	return (1);
+      if (cmp->next != NULL)
+	{
+	  if (dup2(fd[1], 1) == -1)
+	    return (1);
+	  if (close(fd[1]) == -1)
+	    return (1);
+	}
     }
   if (cmp->prev != NULL)
     {

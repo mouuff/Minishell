@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 13:52:44 2016 alies_a
-** Last update Thu Mar 24 14:45:00 2016 alies_a
+** Last update Tue Mar 29 13:31:46 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -40,6 +40,20 @@ int	cl_right(t_token *tok)
 int     cl_left(t_token *tok)
 {
   if (cl_redirect(tok, "<"))
+    return (1);
+  return (0);
+}
+
+int	cl_right_double(t_token *tok)
+{
+  if (cl_redirect(tok, ">>"))
+    return (1);
+  return (0);
+}
+
+int     cl_left_double(t_token *tok)
+{
+  if (cl_redirect(tok, "<<"))
     return (1);
   return (0);
 }

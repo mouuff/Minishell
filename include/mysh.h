@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Mon Mar 28 17:01:24 2016 alies_a
+** Last update Tue Mar 29 20:25:42 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -131,8 +131,10 @@ typedef struct s_rdr
   char type;
 } t_rdr;
 
+int     out_double(const t_cmp *cmp);
 int     out_simple(const t_cmp *cmp);
 int     in_simple(const t_cmp *cmp);
+int     in_double(const t_cmp *cmp);
 
 int	redirect(const t_cmp *cmp);
 int     pipeit(const t_cmp *cmp,
@@ -144,7 +146,10 @@ int     pipeit(const t_cmp *cmp,
 */
 
 int     cmp_left_simple(const t_token *tok, t_cmp **cmp);
+int     cmp_left_double(const t_token *tok, t_cmp **cmp);
 int     cmp_right_simple(const t_token *tok, t_cmp **cmp);
+int     cmp_right_double(const t_token *tok, t_cmp **cmp);
+
 int     cmp_str(const t_token *tok, t_cmp **cmp);
 int     cmp_default(const t_token *tok, t_cmp **cmp);
 int     cmp_pipe(const t_token *tok, t_cmp **cmp);
@@ -165,6 +170,8 @@ int	tok_default(const char *line);
 int	tok_str(const char *line);
 int	tok_right_simple(const char *line);
 int	tok_left_simple(const char *line);
+int     tok_right_double(const char *line);
+int     tok_left_double(const char *line);
 int     tok_pipe(const char *line);
 
 t_token	*tokenize(const char *line);
@@ -180,6 +187,8 @@ int     cl_no(t_token *tok);
 int	cl_str(t_token *tok);
 int     cl_right(t_token *tok);
 int     cl_left(t_token *tok);
+int     cl_right_double(t_token *tok);
+int     cl_left_double(t_token *tok);
 
 /*
 ** Parse
@@ -201,6 +210,13 @@ int     parse_redirect(t_cmp *cmp);
 /*
 ** Misc
 */
+
+
+int	prefork(t_data *data,
+		t_cmp *cmp,
+		int *in_fd);
+int	fd_backup(int *fds);
+int     fd_rollback(int *fds);
 
 void    set_handlers();
 void    unset_handlers();

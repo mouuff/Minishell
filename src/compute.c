@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Mon Mar 28 17:32:08 2016 alies_a
+** Last update Tue Mar 29 20:26:23 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -87,19 +87,24 @@ void	show_cmp(t_cmp *start)
 
 int     	compute_line(t_data *data, char *line)
 {
+  t_cmp		*res;
   t_token	*tokens;
+  int		code;
 
   tokens = tokenize(line);
   cl_tokens(tokens);
   //show_tok(tokens);
   //printf("\n-----------------\n");
-  t_cmp *res;
   res = recompose(tokens);
 
   if (cmps_parse(res) == 0)
-    launch_cmps(data, res, 0);
+    {
+      code = launch_cmps(data, res, 0);
+      if (IS_ERR(code))
+	return (code);
+    }
 
-  show_cmp(res);
+  //show_cmp(res);
   cmps_free(&res);
   tokens_free(&tokens);
   return (E_PASS);
