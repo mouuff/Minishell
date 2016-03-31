@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan 11 16:49:00 2016 Arnaud Alies
-** Last update Sat Jan 23 16:15:35 2016 alies_a
+** Last update Thu Mar 31 19:58:33 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -39,8 +39,8 @@ int     b_exit(t_data *data, int ac, char **av)
       else
 	{
 	  my_puterr("exit: Expression Syntax.\n");
-	  return (E_PASS);
+	  return (0);
 	}
     }
-  return (E_EXIT);
+  return (2);
 }

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan 25 22:45:56 2016 alies_a
-** Last update Mon Jan 25 22:57:48 2016 alies_a
+** Last update Thu Mar 31 19:41:52 2016 alies_a
 */
 
 #include <sys/types.h>
@@ -27,7 +27,7 @@ int	b_doge(t_data *data, int ac, char **av)
   if ((fd = open("res/doge.txt", O_RDONLY)) == -1)
     {
       my_putstr("no doge :(\n");
-      return (E_PASS);
+      return (0);
     }
   r = 1;
   while (r > 0)
@@ -36,5 +36,5 @@ int	b_doge(t_data *data, int ac, char **av)
       write(1, buff, r);
     }
   close(fd);
-  return (E_PASS);
+  return (0);
 }

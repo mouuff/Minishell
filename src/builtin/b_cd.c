@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan 11 16:52:07 2016 Arnaud Alies
-** Last update Sat Jan 23 23:39:31 2016 alies_a
+** Last update Thu Mar 31 19:41:34 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -58,7 +58,7 @@ int		b_cd(t_data *data, int ac, char **av)
   if (ac == 1)
     {
       if ((path = get_env(data, "HOME")) == NULL)
-	return (E_PASS);
+	return (0);
     }
   else if (ac == 2)
     {
@@ -70,10 +70,10 @@ int		b_cd(t_data *data, int ac, char **av)
   if (chdir(path) == -1)
     {
       print_err(path);
-      return (E_PASS);
+      return (0);
     }
   if (set_oldpwd(data))
-    return (E_MALLOC);
+    return (1);
   set_pwd(data);
-  return (E_PASS);
+  return (0);
 }

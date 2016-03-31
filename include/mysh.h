@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 31 19:09:33 2016 alies_a
+** Last update Thu Mar 31 19:27:58 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -38,15 +38,6 @@ typedef struct t_signal
   int signal;
   const char *name;
 } t_signal;
-
-typedef enum e_exit_code
-  {
-    E_SKIP	= -2,
-    E_PASS	= -1,
-    E_EXIT	= 1,
-    E_MALLOC	= 2,
-    E_KILL	= 3
-  } t_exit_code;
 
 void    clean_str(char **s);
 void	clean_array(char ***array);

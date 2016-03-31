@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Thu Mar 31 19:11:10 2016 alies_a
+** Last update Thu Mar 31 19:40:24 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -108,12 +108,12 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
   int   status;
   int	code;
 
-  if ((code = prefork(data, cmp, &in_fd)) != E_PASS)
+  if ((code = prefork(data, cmp, &in_fd)) != -1)
     return (code);
   if (pipe(fd) == -1)
-    return (E_MALLOC);
+    return (1);
   if ((pid = rdrfork(cmp)) == -1)
-    return (E_MALLOC);
+    return (1);
   if (pid == 0)
     {
       launch_cmp(data, cmp, fd, in_fd);
@@ -128,5 +128,5 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
       if (waitpid(pid, &status, 0) != -1)
 	print_sig(status);
     }
-  return (E_PASS);
+  return (0);
 }

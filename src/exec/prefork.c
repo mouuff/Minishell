@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 29 14:53:36 2016 alies_a
-** Last update Tue Mar 29 20:03:02 2016 alies_a
+** Last update Thu Mar 31 19:40:55 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -24,16 +24,16 @@ int		prefork(t_data *data,
   if (cmp->next == NULL && (func = check_builtin(cmp->args)) != NULL)
     {
       if (fd_backup(fd))
-	return (E_MALLOC);
+	return (1);
       if (pipeit(cmp, NULL, *in_fd))
-	return (E_MALLOC);
+	return (1);
       if (redirect(cmp))
-	return (E_MALLOC);
-      if ((code = func(data, my_array_len(cmp->args), cmp->args)) != E_PASS)
+	return (1);
+      if ((code = func(data, my_array_len(cmp->args), cmp->args)) != 0)
 	return (code);
       if (fd_rollback(fd))
-	return (E_MALLOC);
-      return (E_SKIP);
+	return (1);
+      return (0);
     }
-  return (E_PASS);
+  return (-1);
 }

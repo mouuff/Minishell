@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:08:32 2016 Arnaud Alies
-** Last update Fri Mar 25 12:51:12 2016 alies_a
+** Last update Thu Mar 31 20:01:34 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -26,8 +26,8 @@ int	loop(t_data *data)
     {
       my_putstr("$>");
       if ((line = get_next_line(0, &next, &size)) == NULL)
-	return (E_EXIT);
-      if (IS_ERR((code = compute_line(data, line))))
+	return (1);
+      if ((code = compute_line(data, line)) != 0)
 	{
 	  free(next);
 	  free(line);
@@ -37,7 +37,7 @@ int	loop(t_data *data)
       line = NULL;
     }
   free(next);
-  return (0);
+  return (1);
 }
 
 int		main(int ac, char **av, char **env)
@@ -49,16 +49,17 @@ int		main(int ac, char **av, char **env)
   (void)av;
   set_handlers();
   if (init_data(&data, env))
-    return (E_MALLOC);
+    return (1);
   code = loop(&data);
-  if (code == E_EXIT)
+  if (code == 2)
     {
       my_putstr("exit\n");
       free_data(&data);
     }
-  if (code == E_MALLOC)
+  else
     {
       my_puterr("Memory error\n");
+      return (1);
     }
   return (0);
 }
