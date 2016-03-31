@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Tue Mar 29 20:33:19 2016 alies_a
+** Last update Tue Mar 29 20:42:31 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -85,9 +85,9 @@ int		launch_cmp(t_data *data,
   t_built	func;
 
   func = check_builtin(cmp->args);
-  if (redirect(cmp))
-    return (1);
   if (pipeit(cmp, fd, in_fd))
+    return (1);
+  if (redirect(cmp))
     return (1);
   if (func != NULL)
     func(data, my_array_len(cmp->args), cmp->args);

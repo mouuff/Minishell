@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 29 20:02:08 2016 alies_a
-** Last update Tue Mar 29 20:32:28 2016 alies_a
+** Last update Thu Mar 31 17:57:07 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -48,7 +48,8 @@ int	in_double(const t_cmp *cmp)
 {
   int	fd[2];
 
-  std_to_fd(cmp, fd);
+  if (std_to_fd(cmp, fd))
+    return (1);
   if (dup2(fd[0], 0) == -1)
     return (1);
   if (close(fd[0]) == -1)
