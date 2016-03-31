@@ -5,16 +5,16 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Mar 28 13:29:52 2016 alies_a
-** Last update Tue Mar 29 15:14:49 2016 alies_a
+** Last update Thu Mar 31 20:33:56 2016 alies_a
 */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include "mysh.h"
 
-int	pipeit(const t_cmp *cmp,
-	       int *fd,
-	       int in_fd)
+int	pipe_it(const t_cmp *cmp,
+		int *fd,
+		int in_fd)
 {
   if (fd != NULL)
     {

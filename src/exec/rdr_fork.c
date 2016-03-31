@@ -5,13 +5,13 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 31 18:04:22 2016 alies_a
-** Last update Thu Mar 31 19:58:13 2016 alies_a
+** Last update Thu Mar 31 20:33:03 2016 alies_a
 */
 
 #include <unistd.h>
 #include "mysh.h"
 
-int	rdrfork(const t_cmp *cmp)
+int	rdr_fork(const t_cmp *cmp)
 {
   pid_t	pid;
   int	fd;

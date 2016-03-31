@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 31 20:28:35 2016 alies_a
+** Last update Thu Mar 31 20:33:32 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -126,10 +126,10 @@ int     out_double(const t_cmp *cmp);
 int     out_simple(const t_cmp *cmp);
 int     in_simple(const t_cmp *cmp);
 int     std_input(const t_cmp *cmp);
-int	rdrfork(const t_cmp *cmp);
+int	rdr_fork(const t_cmp *cmp);
 
 int	redirect(const t_cmp *cmp);
-int     pipeit(const t_cmp *cmp,
+int     pipe_it(const t_cmp *cmp,
 	       int *fd,
 	       int in_fd);
 

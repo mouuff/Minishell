@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 29 14:53:36 2016 alies_a
-** Last update Thu Mar 31 20:23:53 2016 alies_a
+** Last update Thu Mar 31 20:35:12 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -25,7 +25,7 @@ int		run_builtin(t_data *data,
     {
       if (fd_backup(fd))
 	return (1);
-      if (pipeit(cmp, NULL, *in_fd))
+      if (pipe_it(cmp, NULL, *in_fd))
 	return (1);
       if (redirect(cmp))
 	return (1);

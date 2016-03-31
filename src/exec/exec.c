@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Thu Mar 31 20:29:01 2016 alies_a
+** Last update Thu Mar 31 20:34:38 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -61,7 +61,7 @@ int		launch_cmp(t_data *data,
   t_built	func;
 
   func = check_builtin(cmp->args);
-  if (pipeit(cmp, fd, in_fd))
+  if (pipe_it(cmp, fd, in_fd))
     return (1);
   if (redirect(cmp))
     return (1);
@@ -88,7 +88,7 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
     return (code);
   if (pipe(fd) == -1)
     return (1);
-  if ((pid = rdrfork(cmp)) == -1)
+  if ((pid = rdr_fork(cmp)) == -1)
     return (1);
   if (pid == 0)
     {
