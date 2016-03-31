@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:26:23 2016 Arnaud Alies
-** Last update Thu Mar 31 19:40:24 2016 alies_a
+** Last update Thu Mar 31 20:29:01 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -51,30 +51,6 @@ int	print_sig(int status)
     }
   return (0);
 }
-/*
-int	forked(t_data *data, t_cmp *cmp, int fds)
-{
-  char	*bin_path;
-  int	code;
-
-  if (IS_ERR((code = check_builtin(data, expr))))
-    return (code);
-  if (code == E_SKIP)
-    {
-      if ((bin_path = get_exec(data, cmp->args)) == NULL)
-	return (E_PASS);
-      close(fd[0]);
-      if (cmp->next != NULL)
-	dup2(fd[1], 1);
-      if (cmp->prev != NULL)
-	dup2(in_fd, 0);
-      redirect(cmp);
-      if (execve(bin_path, cmp->args, data->env) == -1)
-	return (E_KILL);
-    }
-  return (0);
-}
-*/
 
 int		launch_cmp(t_data *data,
 			   t_cmp *cmp,
@@ -108,7 +84,7 @@ int     launch_cmps(t_data *data, t_cmp *cmp, int in_fd)
   int   status;
   int	code;
 
-  if ((code = prefork(data, cmp, &in_fd)) != -1)
+  if ((code = run_builtin(data, cmp, &in_fd)) != -1)
     return (code);
   if (pipe(fd) == -1)
     return (1);

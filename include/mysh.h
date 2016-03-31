@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 31 19:27:58 2016 alies_a
+** Last update Thu Mar 31 20:28:35 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -203,10 +203,9 @@ int     parse_redirect(t_cmp *cmp);
 ** Misc
 */
 
-
-int	prefork(t_data *data,
-		t_cmp *cmp,
-		int *in_fd);
+int	run_builtin(t_data *data,
+		    t_cmp *cmp,
+		    int *in_fd);
 int	fd_backup(int *fds);
 int     fd_rollback(int *fds);
 

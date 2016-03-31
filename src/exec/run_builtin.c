@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 29 14:53:36 2016 alies_a
-** Last update Thu Mar 31 19:40:55 2016 alies_a
+** Last update Thu Mar 31 20:23:53 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -13,9 +13,9 @@
 #include "mysh.h"
 #include "my.h"
 
-int		prefork(t_data *data,
-			t_cmp *cmp,
-			int *in_fd)
+int		run_builtin(t_data *data,
+			    t_cmp *cmp,
+			    int *in_fd)
 {
   t_built	func;
   int		code;
