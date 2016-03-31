@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Mar 31 18:04:22 2016 alies_a
-** Last update Thu Mar 31 20:33:03 2016 alies_a
+** Last update Thu Mar 31 20:48:51 2016 alies_a
 */
 
 #include <unistd.h>
@@ -17,7 +17,7 @@ int	rdr_fork(const t_cmp *cmp)
   int	fd;
 
   fd = -1;
-  if (cmp->next == NULL && (cmp->rd)[IN].type == '{')
+  if (cmp->prev == NULL && (cmp->rd)[IN].type == '{')
     {
       if ((fd = std_input(cmp)) == -1)
 	return (-1);
