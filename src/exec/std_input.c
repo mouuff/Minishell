@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 29 20:02:08 2016 alies_a
-** Last update Thu Mar 31 17:57:07 2016 alies_a
+** Last update Thu Mar 31 18:20:56 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -44,17 +44,13 @@ static int      std_to_fd(const t_cmp *cmp,
   return (0);
 }
 
-int	in_double(const t_cmp *cmp)
+int     std_input(const t_cmp *cmp)
 {
   int	fd[2];
 
   if (std_to_fd(cmp, fd))
-    return (1);
-  if (dup2(fd[0], 0) == -1)
-    return (1);
-  if (close(fd[0]) == -1)
-    return (1);
+    return (-1);
   if (close(fd[1]) == -1)
-    return (1);
-  return (0);
+    return (-1);
+  return (fd[0]);
 }

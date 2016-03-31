@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 22 14:39:02 2016 alies_a
-** Last update Tue Mar 29 20:26:46 2016 alies_a
+** Last update Thu Mar 31 18:24:44 2016 alies_a
 */
 
 #include <sys/types.h>
@@ -20,7 +20,6 @@ t_rdr rdr[] = {
   {&out_simple, '>'},
   {&in_simple, '<'},
   {&out_double, '}'},
-  {&in_double, '{'},
   {NULL, 0},
 };
 

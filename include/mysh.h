@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Tue Mar 29 20:25:42 2016 alies_a
+** Last update Thu Mar 31 19:09:33 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -134,7 +134,8 @@ typedef struct s_rdr
 int     out_double(const t_cmp *cmp);
 int     out_simple(const t_cmp *cmp);
 int     in_simple(const t_cmp *cmp);
-int     in_double(const t_cmp *cmp);
+int     std_input(const t_cmp *cmp);
+int	rdrfork(const t_cmp *cmp);
 
 int	redirect(const t_cmp *cmp);
 int     pipeit(const t_cmp *cmp,
