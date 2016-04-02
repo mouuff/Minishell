@@ -5,10 +5,24 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan  5 18:07:49 2016 Arnaud Alies
-** Last update Fri Jan 22 14:47:39 2016 alies_a
+** Last update Sat Apr  2 12:14:50 2016 alies_a
 */
 
 #include "my.h"
+
+int	isempty(const char *str)
+{
+  int	x;
+  
+  x = 0;
+  while (str[x] != '\0')
+    {
+      if (str[x] != ' ' && str[x] != '\t')
+	return (0);
+      x += 1;
+    }
+  return (1);
+}
 
 int		check_par(const char *str)
 {
@@ -31,7 +45,8 @@ int		check_par(const char *str)
 
 int		pre_check(char *str)
 {
-  my_purstr(str);
+  if (isempty(str))
+    return (1);
   if (check_par(str))
     return (1);
   return (0);

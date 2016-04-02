@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:08:32 2016 Arnaud Alies
-** Last update Thu Mar 31 20:11:09 2016 alies_a
+** Last update Sat Apr  2 11:50:32 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -26,7 +26,10 @@ int	loop(t_data *data)
     {
       my_putstr("$>");
       if ((line = get_next_line(0, &next, &size)) == NULL)
-	return (2);
+	{
+	  free(next);
+	  return (2);
+	}
       if ((code = compute_line(data, line)) != 0)
 	{
 	  free(next);
