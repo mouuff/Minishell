@@ -5,9 +5,10 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 22 14:39:02 2016 alies_a
-** Last update Thu Mar 31 18:24:44 2016 alies_a
+** Last update Sat Apr  2 11:37:09 2016 alies_a
 */
 
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -17,8 +18,8 @@
 #include "my.h"
 
 t_rdr rdr[] = {
-  {&out_simple, '>'},
   {&in_simple, '<'},
+  {&out_simple, '>'},
   {&out_double, '}'},
   {NULL, 0},
 };
@@ -28,7 +29,12 @@ int	in_simple(const t_cmp *cmp)
   int	fd;
 
   if ((fd = open((cmp->rd)[IN].file, O_RDONLY)) == -1)
-    return (1);
+    {
+      my_puterr((cmp->rd)[IN].file);
+      if (errno == EACCES)
+	my_puterr(": Permission denied.\n");
+      return (1);
+    }
   if (dup2(fd, 0) == -1)
     {
       close(fd);
@@ -43,7 +49,14 @@ int	out_simple(const t_cmp *cmp)
   int	fd;
 
   if ((fd = open((cmp->rd)[OUT].file, O_WRONLY | O_CREAT, 0644)) == -1)
-    return (1);
+    {
+      my_puterr((cmp->rd)[OUT].file);
+      if (errno == EACCES)
+	my_puterr(": Permission denied.\n");
+      if (errno == EISDIR)
+	my_puterr(": Is a directory.\n");
+      return (1);
+    }
   if (dup2(fd, 1) == -1)
     {
       close(fd);
@@ -60,7 +73,14 @@ int	out_double(const t_cmp *cmp)
   if ((fd = open((cmp->rd)[OUT].file,
 		 O_WRONLY | O_CREAT | O_APPEND,
 		 0644)) == -1)
-    return (1);
+    {
+      my_puterr((cmp->rd)[OUT].file);
+      if (errno == EACCES)
+	my_puterr(": Permission denied.\n");
+      if (errno == EISDIR)
+	my_puterr(": Is a directory.\n");
+      return (1);
+    }
   if (dup2(fd, 1) == -1)
     {
       close(fd);
