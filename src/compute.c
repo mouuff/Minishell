@@ -5,53 +5,14 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan  7 14:14:30 2016 Arnaud Alies
-** Last update Thu Mar 31 20:48:44 2016 alies_a
+** Last update Sat Apr  2 11:46:46 2016 alies_a
 */
 
 #include <stdlib.h>
 #include "my.h"
 #include "mysh.h"
 
-/*
-static int	compute(t_data *data, char **expr)
-{
-  int   	code;
 
-  if (IS_ERR((code = check_builtin(data, expr))))
-    return (code);
-  if (code == E_SKIP)
-    {
-      if (IS_ERR((code = my_exec(data, expr))))
-	return (code);
-    }
-  return (E_PASS);
-}
-
-
-int     compute_line(t_data *data, char *line)
-{
-  char  **args;
-  int   code;
-
-  args = NULL;
-  if (pre_check(line))
-    return (E_PASS);
-  if ((args = str_to_arg(line)) == NULL)
-    return (E_MALLOC);
-  if (parse(args))
-    {
-      my_array_del(args);
-      return (E_PASS);
-    }
-  if (IS_ERR((code = compute(data, args))))
-    {
-      my_array_del(args);
-      return (code);
-    }
-  my_array_del(args);
-  return (E_PASS);
-}
-*/
 
 #include <stdio.h>
 void	show_tok(t_token *start)
@@ -85,7 +46,7 @@ void	show_cmp(t_cmp *start)
   */
 }
 
-int     	compute_line(t_data *data, char *line)
+int     	compute(t_data *data, char *line)
 {
   t_cmp		*res;
   t_token	*tokens;
@@ -99,7 +60,6 @@ int     	compute_line(t_data *data, char *line)
   //printf("\n-----------------\n");
   if ((res = recompose(tokens)) == NULL)
     return (1);
-
   if (cmps_parse(res) == 0)
     {
       if ((code = launch_cmps(data, res, 0)) != 0)
@@ -112,5 +72,16 @@ int     	compute_line(t_data *data, char *line)
   //show_cmp(res);
   cmps_free(&res);
   tokens_free(&tokens);
+  return (0);
+}
+
+int     compute_line(t_data *data, char *line)
+{
+  int   code;
+
+  if (pre_check(line))
+    return (0);
+  if ((code = compute(data, line)) != 0)
+    return (code);
   return (0);
 }
