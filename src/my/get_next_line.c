@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Dec 17 13:44:58 2015 Arnaud Alies
-** Last update Fri Mar 18 17:21:43 2016 alies_a
+** Last update Sat Apr  2 12:48:17 2016 alies_a
 */
 
 #include <unistd.h>
@@ -69,6 +69,17 @@ char	*dump_next(char **next, int *next_size, int x)
   return (res);
 }
 
+int	is_line(int set)
+{
+  static int is_line = 1;
+
+  if (set == -1)
+    is_line = 0;
+  if (set == 1)
+    is_line = 1;
+  return (is_line);
+}
+
 char	*get_line(char **next, int *next_size)
 {
   int	x;
@@ -76,8 +87,11 @@ char	*get_line(char **next, int *next_size)
   x = 0;
   while (x < *next_size)
     {
-      if ((*next)[x] == '\n')
-	return (dump_next(next, next_size, x + 1));
+      if ((*next)[x] == '\n' || (*next)[x] == ';')
+	{
+	  is_line((*next)[x] == '\n' ? 1 : -1);
+	  return (dump_next(next, next_size, x + 1));
+	}
       x += 1;
     }
   return (NULL);
