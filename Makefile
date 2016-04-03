@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Thu Mar 31 20:32:35 2016 alies_a
+## Last update Sun Apr  3 13:02:44 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -64,7 +64,6 @@ SRCS	=	$(SRC)main.c \
 		$(EXEC)fd_backup.c \
 		$(EXEC)std_input.c \
 		$(EXEC)rdr_fork.c \
-		$(PARSE)str_to_arg.c \
 		$(PARSE)preparse.c \
 		$(PARSE)parse.c \
 		$(PARSE)cmp_parse.c \

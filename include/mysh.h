@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:09:57 2016 Arnaud Alies
-** Last update Thu Mar 31 20:33:32 2016 alies_a
+** Last update Sun Apr  3 13:02:53 2016 alies_a
 */
 
 #ifndef MYSH_H_
@@ -219,7 +219,5 @@ int	isdir(const char *path);
 int	isfile(const char *path);
 int	is_something(const char *path);
 int     is_true_path(const char *str);
-
-char    **str_to_arg(const char *str);
 
 #endif
