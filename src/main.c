@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Mon Jan  4 14:08:32 2016 Arnaud Alies
-** Last update Sat Apr  2 12:49:15 2016 alies_a
+** Last update Sun Apr  3 13:14:28 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -24,8 +24,7 @@ int	loop(t_data *data)
   size = 0;
   while (42)
     {
-      if (is_line(0))
-	  my_putstr("$>");
+      my_putstr((is_line(0) ? "$>" : ""));
       if ((line = get_next_line(0, &next, &size)) == NULL)
 	{
 	  free(next);
@@ -40,7 +39,6 @@ int	loop(t_data *data)
       free(line);
       line = NULL;
     }
-  free(next);
   return (2);
 }
 

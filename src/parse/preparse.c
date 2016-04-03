@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan  5 18:07:49 2016 Arnaud Alies
-** Last update Sat Apr  2 12:14:50 2016 alies_a
+** Last update Sun Apr  3 13:08:52 2016 alies_a
 */
 
 #include "my.h"
@@ -13,7 +13,7 @@
 int	isempty(const char *str)
 {
   int	x;
-  
+
   x = 0;
   while (str[x] != '\0')
     {
