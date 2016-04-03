@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 22 14:39:02 2016 alies_a
-** Last update Sat Apr  2 11:37:09 2016 alies_a
+** Last update Sun Apr  3 12:59:45 2016 alies_a
 */
 
 #include <errno.h>
@@ -48,7 +48,8 @@ int	out_simple(const t_cmp *cmp)
 {
   int	fd;
 
-  if ((fd = open((cmp->rd)[OUT].file, O_WRONLY | O_CREAT, 0644)) == -1)
+  if ((fd = open((cmp->rd)[OUT].file, O_WRONLY | O_CREAT | O_TRUNC,
+		 0644)) == -1)
     {
       my_puterr((cmp->rd)[OUT].file);
       if (errno == EACCES)
