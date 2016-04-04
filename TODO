@@ -4,3 +4,7 @@
 
 src/parse/preparse (comment)
 
+ls <>/dev/null
+ls <<>efger
+ls <>hello
+cat ><hello
