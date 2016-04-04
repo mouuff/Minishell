@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Mar 16 16:47:38 2016 alies_a
-** Last update Tue Mar 29 14:25:20 2016 alies_a
+** Last update Mon Apr  4 14:44:41 2016 alies_a
 */
 
 #include "mysh.h"
@@ -21,7 +21,7 @@ static int	tok_redirect(const char *line,
   if (my_strlen(line) == 0 ||
       my_strmou(line, type) != 0)
     return (0);
-  x = my_strlen(type);
+  x = my_strlen(type) - 1;
   while (line[x] != '\0' &&
 	 !(word && is_delimiter(line[x])))
     {
