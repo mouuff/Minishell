@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 29 20:02:08 2016 alies_a
-** Last update Wed Apr  6 14:19:53 2016 alies_a
+** Last update Wed Apr  6 14:53:37 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -13,9 +13,10 @@
 #include "mysh.h"
 #include "my.h"
 
-static ssize_t  myprompt(int fd, void *buf, size_t count)
+static ssize_t  myprompt(int fd, void *buf, size_t count, int ret)
 {
-  my_putstr("? ");
+  if (ret)
+    my_putstr("? ");
   return (read(fd, buf, count));
 }
 
@@ -25,20 +26,24 @@ static int      std_to_fd(const t_cmp *cmp,
   char          buff[READ_SIZE + 1];
   int           r;
   int           valid;
+  int		ret;
 
   valid = 1;
+  ret = 1;
   if (pipe(fd) == -1)
     return (1);
-  while (valid && (r = myprompt(STDIN_FILENO, buff, READ_SIZE)) > 0)
+  while (valid && (r = myprompt(STDIN_FILENO, buff, READ_SIZE, ret)) > 0)
     {
-      r -= (buff[r - 1] == '\n' ? 1 : 0);
+      ret = (buff[r - 1] == '\n' ? 1 : 0);
+      r -= ret;
       buff[r] = '\0';
       if (my_strcmp(buff, (cmp->rd)[IN].file) == 0)
 	valid = 0;
       else
 	{
 	  write(fd[1], buff, r);
-	  write(fd[1], "\n", 1);
+	  if (ret)
+	    write(fd[1], "\n", 1);
 	}
     }
   return (0);
