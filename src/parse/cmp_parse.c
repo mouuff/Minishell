@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 11:15:27 2016 alies_a
-** Last update Thu Mar 24 18:52:27 2016 alies_a
+** Last update Wed Apr  6 14:56:42 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -29,7 +29,7 @@ static int	cmp_parse(t_cmp *cmp)
     {
       if (func[x].parse(cmp))
 	{
-	  my_putstr(func[x].err);
+	  my_puterr(func[x].err);
 	  return (1);
 	}
       x += 1;
