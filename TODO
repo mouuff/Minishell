@@ -8,3 +8,4 @@ ls <>/dev/null
 ls <<>efger
 ls <>hello
 cat ><hello
+ls <</dev/null>/dev/null

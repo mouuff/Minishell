@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Mar 29 20:02:08 2016 alies_a
-** Last update Thu Mar 31 18:20:56 2016 alies_a
+** Last update Wed Apr  6 14:19:53 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -29,7 +29,7 @@ static int      std_to_fd(const t_cmp *cmp,
   valid = 1;
   if (pipe(fd) == -1)
     return (1);
-  while (valid && (r = myprompt(1, buff, READ_SIZE)) > 0)
+  while (valid && (r = myprompt(STDIN_FILENO, buff, READ_SIZE)) > 0)
     {
       r -= (buff[r - 1] == '\n' ? 1 : 0);
       buff[r] = '\0';
