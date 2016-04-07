@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Fri Mar 18 11:15:27 2016 alies_a
-** Last update Wed Apr  6 14:56:42 2016 alies_a
+** Last update Thu Apr  7 10:30:23 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -14,9 +14,9 @@
 
 static t_cmp_parse func[] = {
   {"Missing name for redirect.\n", &parse_redirect},
-  {"Invalid null command.\n", &parse_empty_args},
   {"Ambiguous output redirect.\n", &parse_ambig_out},
   {"Ambiguous input redirect.\n", &parse_ambig_in},
+  {"Invalid null command.\n", &parse_empty_args},
   {NULL, NULL}
 };
 
