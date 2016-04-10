@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Mon Jan  4 14:04:11 2016 Arnaud Alies
-## Last update Sun Apr  3 13:02:44 2016 alies_a
+## Last update Sun Apr 10 18:56:44 2016 alies_a
 ##
 
 NAME    =       mysh
@@ -114,10 +114,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 RM	=	rm -f
 
-all:		check $(NAME)
-
-check:
-		@./src/exec/check &
+all:		$(NAME)
 
 $(NAME):	$(OBJS)
 		$(CC) $(OBJS) -o $(NAME) $(CFLAGS)
